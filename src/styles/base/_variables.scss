@@ -1,0 +1,22 @@
+// COLORS
+$blue-base: hsl(231, 70%, 65%);
+$blue-darken: darken($blue-base, 10%);
+$blue-lighten: lighten($blue-base, 10%);
+
+$purple-base: hsl(266, 71%, 67%);
+$purple-darken: darken($purple-base, 10%);
+$purple-lighten: lighten($purple-base, 10%);
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+// SHADOW LAYERS
+$shadow-1: 2;
+$shadow-2: 4;
+$shadow-3: 6;
+$shadow-4: 8;
+$shadow-5: 10;
+
+// FONTS
+$font-family: Poppins, sans-serif;
+$font-size: 16px;

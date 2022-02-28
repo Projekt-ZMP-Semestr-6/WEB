@@ -1,0 +1,12 @@
+@function shadow($level) {
+    $x-asix: #{$level}px;
+    $y-asix: #{$level * 2}px;
+    $blur: #{$level * 2}px;
+    
+    $opacity: 0.50 - 0.03 * $level;
+    $color: hsl(0 0% 0% / #{$opacity});
+
+    $shadow: $x-asix $y-asix $blur $color;
+
+    @return $shadow;
+}

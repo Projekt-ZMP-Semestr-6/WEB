@@ -1,0 +1,11 @@
+@use 'reset';
+@use 'variables';
+@use 'mixins';
+
+html {
+    font-size: variables.$font-size;
+}
+
+body {
+    @include mixins.fonts()
+}
