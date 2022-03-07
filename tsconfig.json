@@ -21,7 +21,14 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "@styles":["styles"]
+      "@styles":["styles"],
+      "@styles/components":["styles/components"],
+      "@constants": ["constants"],
+      "@components": ["components"],
+      "@components/shared": ["components/shared"],
+      "@pages": ["pages"],
+      "@hooks": ["hooks"],
+      "@types": ["types"]
     }
   },
   "include": [

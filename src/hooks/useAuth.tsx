@@ -1,13 +1,14 @@
+import { UseAuth } from '@types';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-const AuthContext = createContext({});
+const AuthContext = createContext({} as UseAuth);
 
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 function useAuthProvider() {
-  const [user, setUser] = useState<null>(null);
+  const [user, setUser] = useState<any>(null);
 
   const signin = (email: string, password: string) => {};
 
