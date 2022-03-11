@@ -1,5 +1,5 @@
+import { LoginForm } from '@components/standard';
 import { useAuth } from '@hooks';
-import { Button } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface LocationState {
@@ -16,7 +16,11 @@ const LoginPage = () => {
   const locationState = location.state as LocationState;
   const from = locationState?.from?.pathname || '/';
 
-  return <div>Login Page</div>;
+  return (
+    <>
+      <LoginForm />
+    </>
+  );
 };
 
 export default LoginPage;

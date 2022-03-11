@@ -26,6 +26,7 @@
       "@constants": ["constants"],
       "@components": ["components"],
       "@components/shared": ["components/shared"],
+      "@components/standard": ["components/standard"],
       "@pages": ["pages"],
       "@hooks": ["hooks"],
       "@types": ["types"]
