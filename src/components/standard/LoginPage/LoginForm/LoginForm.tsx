@@ -1,42 +1,41 @@
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { TextInput } from '@components/shared';
+import { Box, Button, Stack } from '@mui/material';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import DontHaveAccount from './components/DontHaveAccount/DontHaveAccount';
+import LoginHeader from './components/LoginHeader/LoginHeader';
+import { LoginFormProps } from './types';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
-type LoginFormProps = {
-  email: string;
-  password: string;
-};
+const schema = yup.object({
+  email: yup.string().required().email(),
+  password: yup.string().required()
+});
 
 const LoginForm = () => {
-  const { control, handleSubmit } = useForm<LoginFormProps>();
+  const formMethods = useForm<LoginFormProps>({
+    resolver: yupResolver(schema)
+  });
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
     console.log(formValues);
   };
 
   return (
-    <Box m={2} textAlign="center">
-      <Typography variant="h3" component="h1" mb={4}>
-        Logowanie
-      </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={2}>
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            render={({ field }) => <TextField variant="outlined" label="Adres E-mail" {...field} />}
-          />
-          <Controller
-            name="password"
-            control={control}
-            defaultValue=""
-            render={({ field }) => <TextField variant="outlined" label="Hasło" {...field} />}
-          />
+    <Box mt={5} textAlign="center">
+      <LoginHeader />
+
+      <FormProvider {...formMethods}>
+        <Stack component="form" spacing={2} onSubmit={formMethods.handleSubmit(onSubmit)}>
+          <TextInput name="email" label="Adres E-mail" />
+          <TextInput name="password" label="Hasło" type="password" />
           <Button type="submit" variant="contained" size="large">
-            Zaloguj
+            Zaloguj się
           </Button>
         </Stack>
-      </form>
+      </FormProvider>
+
+      <DontHaveAccount />
     </Box>
   );
 };

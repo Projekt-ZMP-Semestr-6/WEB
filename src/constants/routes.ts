@@ -1,4 +1,5 @@
 export const ROUTES = {
   index: '/',
-  login: '/login'
+  login: '/login',
+  register: '/register'
 };
