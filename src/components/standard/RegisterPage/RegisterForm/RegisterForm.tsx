@@ -1,24 +1,28 @@
 import { TextInput } from '@components/shared';
 import { Box, Button, Stack } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import DontHaveAccount from './components/DontHaveAccount/DontHaveAccount';
-import LoginHeader from './components/LoginHeader/LoginHeader';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { inputsData, loginSchema } from './utils';
+import { inputsData, registerSchema } from './utils';
+import AlreadHaveAccount from './components/AlreadyHaveAccount/AlreadHaveAccount';
+import RegisterHeader from './components/RegisterHeader/RegisterHeader';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@constants';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const formMethods = useForm<LoginFormProps>({
-    resolver: yupResolver(loginSchema)
+    resolver: yupResolver(registerSchema)
   });
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
     console.log(formValues);
+    navigate(ROUTES.login);
   };
 
   return (
     <Box mt={5} textAlign="center">
-      <LoginHeader />
+      <RegisterHeader />
 
       <FormProvider {...formMethods}>
         <Stack component="form" spacing={2} onSubmit={formMethods.handleSubmit(onSubmit)}>
@@ -27,14 +31,14 @@ const LoginForm = () => {
           ))}
 
           <Button type="submit" variant="contained" size="large">
-            Zaloguj się
+            Zarejestruj się
           </Button>
         </Stack>
       </FormProvider>
 
-      <DontHaveAccount />
+      <AlreadHaveAccount />
     </Box>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

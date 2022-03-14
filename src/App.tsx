@@ -3,23 +3,31 @@ import { AuthProvider } from '@hooks';
 import { IndexPage, LoginPage, NoMatchPage } from '@pages';
 import { ROUTES } from '@constants';
 import { Route, Routes } from 'react-router-dom';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
-  return (
-    <AuthProvider>
-      <Routes>
-        <Route path={ROUTES.index} element={<Layout />}>
-          {/* public routes */}
-          <Route path={ROUTES.login} element={<LoginPage />} />
-          <Route path="*" element={<NoMatchPage />} />
+  const queryClient = new QueryClient();
 
-          {/* private routes */}
-          <Route element={<RequireAuth />}>
-            <Route index element={<IndexPage />} />
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Routes>
+          <Route path={ROUTES.index} element={<Layout />}>
+            {/* TO MOŻNA WYDZIELIĆ DO OSOBNYCH PLIKÓW PRIVATE/PUBLIC ROUTES */}
+            {/* public routes */}
+            <Route path={ROUTES.login} element={<LoginPage />} />
+            <Route path={ROUTES.register} element={<RegisterPage />} />
+            <Route path="*" element={<NoMatchPage />} />
+
+            {/* private routes */}
+            <Route element={<RequireAuth />}>
+              <Route index element={<IndexPage />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </AuthProvider>
+        </Routes>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 
