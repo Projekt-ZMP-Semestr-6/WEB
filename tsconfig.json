@@ -27,6 +27,7 @@
       "@components": ["components"],
       "@components/shared": ["components/shared"],
       "@components/standard": ["components/standard"],
+      "@components/routes": ["components/routes"],
       "@pages": ["pages"],
       "@hooks": ["hooks"],
       "@types": ["types"]

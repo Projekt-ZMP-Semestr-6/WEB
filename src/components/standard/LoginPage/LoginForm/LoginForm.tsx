@@ -6,11 +6,13 @@ import LoginHeader from './components/LoginHeader/LoginHeader';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { inputsData, loginSchema } from './utils';
+import { useAuth } from '@hooks';
 
 const LoginForm = () => {
   const formMethods = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema)
   });
+  const { login } = useAuth();
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
     console.log(formValues);

@@ -8,20 +8,21 @@ export function useAuth() {
 }
 
 function useAuthProvider() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>(true);
 
-  const signin = (email: string, password: string) => {};
+  // można dodać callback jako argument 2
+  const login = (email: string, password: string) => {};
 
-  const signup = (email: string, password: string) => {};
+  const register = (email: string, password: string) => {};
 
-  const signout = () => {};
+  const logout = () => {};
 
   useEffect(() => {}, []);
 
   return {
-    signin,
-    signup,
-    signout,
+    login,
+    register,
+    logout,
     user
   };
 }

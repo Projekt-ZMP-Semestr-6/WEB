@@ -1,5 +1,11 @@
+import { FreeGames } from '@components/standard';
+
 const IndexPage = () => {
-  return <div>Index Page</div>;
+  return (
+    <>
+      <FreeGames />
+    </>
+  );
 };
 
 export default IndexPage;
