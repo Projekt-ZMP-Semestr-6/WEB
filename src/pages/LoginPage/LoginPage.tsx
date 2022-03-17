@@ -1,5 +1,4 @@
 import { LoginForm } from '@components/standard';
-import { useAuth } from '@hooks';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface LocationState {
@@ -11,7 +10,6 @@ interface LocationState {
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const auth = useAuth();
 
   const locationState = location.state as LocationState;
   const from = locationState?.from?.pathname || '/';

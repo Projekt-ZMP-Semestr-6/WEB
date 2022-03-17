@@ -8,6 +8,9 @@ import AlreadHaveAccount from './components/AlreadyHaveAccount/AlreadHaveAccount
 import RegisterHeader from './components/RegisterHeader/RegisterHeader';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@constants';
+import authClient from 'api/auth-client';
+import { toast } from 'react-toastify';
+import { AxiosError } from 'axios';
 
 const RegisterForm = () => {
   const formMethods = useForm<LoginFormProps>({
@@ -15,9 +18,20 @@ const RegisterForm = () => {
   });
   const navigate = useNavigate();
 
+  const onRegisterSuccess = () => {
+    toast.success('Pomyślnie utworzono konto użytkownika. Możesz się teraz zalogować.');
+    navigate(ROUTES.login);
+  };
+
+  // DO ZMIANY, CZEKAĆ NA ODPOWIEDZ GRZEŚKA DOTYCZĄ UNIKALNEGO IMIENIA
+  const onRegisterFailure = (error: AxiosError<any, any>) => {
+    const msg = error?.response?.data;
+    toast.error(msg);
+  };
+
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
     console.log(formValues);
-    navigate(ROUTES.login);
+    authClient.register(formValues).then(onRegisterSuccess).catch(onRegisterFailure);
   };
 
   return (

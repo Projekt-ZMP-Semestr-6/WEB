@@ -5,17 +5,31 @@ import DontHaveAccount from './components/DontHaveAccount/DontHaveAccount';
 import LoginHeader from './components/LoginHeader/LoginHeader';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { inputsData, loginSchema } from './utils';
-import { useAuth } from '@hooks';
+import { inputsData, loginSchema } from './formUtils';
+import authClient from 'api/auth-client';
+import { AxiosError, AxiosResponse } from 'axios';
+import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
   const formMethods = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema)
   });
-  const { login } = useAuth();
+
+  function onLoginSuccess(response: AxiosResponse<any, any>) {
+    const { Bearer } = response.data;
+    Cookies.set('token', Bearer);
+
+    toast.success('Zalogowano pomyślnie');
+  }
+
+  function onLoginFailure(error: AxiosError<any, any>) {
+    const msg = error?.response?.data;
+    toast.error(msg);
+  }
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
-    console.log(formValues);
+    authClient.login(formValues).then(onLoginSuccess).catch(onLoginFailure);
   };
 
   return (

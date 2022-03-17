@@ -1,15 +1,16 @@
-import { AuthProvider } from '@hooks';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { AllRoutes } from '@components/routes';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <AllRoutes />
-      </AuthProvider>
+      <AllRoutes />
+      <ReactQueryDevtools initialIsOpen={false} />
+      <ToastContainer />
     </QueryClientProvider>
   );
 }
