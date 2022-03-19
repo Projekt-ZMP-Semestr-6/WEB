@@ -6,31 +6,47 @@ import LoginHeader from './components/LoginHeader/LoginHeader';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { inputsData, loginSchema } from './formUtils';
-import authClient from 'api/auth-client';
+import { login } from 'api/authClient';
 import { AxiosError, AxiosResponse } from 'axios';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
+import useFromLocation from 'hooks/useFromLocation';
+import { useNavigate } from 'react-router-dom';
+import useGetUser from 'hooks/useGetUser';
 
 const LoginForm = () => {
+  const from = useFromLocation();
+  const navigate = useNavigate();
+  const { data: user, isLoading } = useGetUser();
+
   const formMethods = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema)
   });
 
-  function onLoginSuccess(response: AxiosResponse<any, any>) {
+  const onLoginSuccess = (response: AxiosResponse<any, any>) => {
     const { Bearer } = response.data;
     Cookies.set('token', Bearer);
 
     toast.success('Zalogowano pomyślnie');
-  }
+    navigate(from);
+  };
 
-  function onLoginFailure(error: AxiosError<any, any>) {
+  const onLoginFailure = (error: AxiosError<any, any>) => {
     const msg = error?.response?.data;
     toast.error(msg);
-  }
+  };
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
-    authClient.login(formValues).then(onLoginSuccess).catch(onLoginFailure);
+    login(formValues).then(onLoginSuccess).catch(onLoginFailure);
   };
+
+  if (isLoading) {
+    return <h1>LOADING..</h1>;
+  }
+
+  if (user) {
+    navigate(from);
+  }
 
   return (
     <Box mt={5} textAlign="center">
