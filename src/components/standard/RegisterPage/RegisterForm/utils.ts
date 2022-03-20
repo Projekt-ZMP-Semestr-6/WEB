@@ -11,20 +11,20 @@ export const registerSchema = yup.object({
 export const inputsData: InputData[] = [
   {
     name: 'email',
-    label: 'Adres E-mail'
+    label: 'E-mail address'
   },
   {
     name: 'name',
-    label: 'Imię'
+    label: 'Name'
   },
   {
     name: 'password',
-    label: 'Hasło',
+    label: 'Password',
     type: 'password'
   },
   {
     name: 'password_confirmation',
-    label: 'Potwierdz hasło',
+    label: 'Confirm password',
     type: 'password'
   }
 ];

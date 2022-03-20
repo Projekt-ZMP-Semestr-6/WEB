@@ -5,9 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 function AlreadHaveAccount() {
   return (
     <Typography variant="subtitle2" component="p" mt={2}>
-      Posiadasz już konto?{' '}
+      Already have an account?{' '}
       <Link underline="none" component={RouterLink} to={ROUTES.login}>
-        Zaloguj się
+        Sign in
       </Link>
     </Typography>
   );

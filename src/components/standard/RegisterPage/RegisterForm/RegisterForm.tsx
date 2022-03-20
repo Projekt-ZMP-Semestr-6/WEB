@@ -24,10 +24,11 @@ const RegisterForm = () => {
     navigate(ROUTES.login);
   };
 
-  // DO ZMIANY, CZEKAĆ NA ODPOWIEDZ GRZEŚKA DOTYCZĄ UNIKALNEGO IMIENIA
   const onRegisterFailure = (error: AxiosError<any, any>) => {
-    const msg = error?.response?.data;
-    toast.error(msg);
+    const emailError = error.response?.data.email[0];
+    if (emailError) {
+      toast.error(emailError);
+    }
   };
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
@@ -46,7 +47,7 @@ const RegisterForm = () => {
           ))}
 
           <Button type="submit" variant="contained" size="large">
-            Zarejestruj się
+            Sign Up
           </Button>
         </Stack>
       </FormProvider>

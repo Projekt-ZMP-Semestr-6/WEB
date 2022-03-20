@@ -9,11 +9,11 @@ export const loginSchema = yup.object({
 export const inputsData: InputData[] = [
   {
     name: 'email',
-    label: 'Adres E-mail'
+    label: 'E-mail address'
   },
   {
     name: 'password',
-    label: 'Hasło',
+    label: 'Password',
     type: 'password'
   }
 ];

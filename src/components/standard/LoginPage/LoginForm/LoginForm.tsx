@@ -1,5 +1,5 @@
 import { TextInput } from '@components/shared';
-import { Box, Button, Stack } from '@mui/material';
+import { Box, Button, CircularProgress, Stack } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import DontHaveAccount from './components/DontHaveAccount/DontHaveAccount';
 import LoginHeader from './components/LoginHeader/LoginHeader';
@@ -12,12 +12,10 @@ import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import useFromLocation from 'hooks/useFromLocation';
 import { useNavigate } from 'react-router-dom';
-import useGetUser from 'hooks/useGetUser';
 
 const LoginForm = () => {
   const from = useFromLocation();
   const navigate = useNavigate();
-  const { data: user, isLoading } = useGetUser();
 
   const formMethods = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema)
@@ -27,7 +25,7 @@ const LoginForm = () => {
     const { Bearer } = response.data;
     Cookies.set('token', Bearer);
 
-    toast.success('Zalogowano pomyślnie');
+    toast.success('Successfully logged in');
     navigate(from);
   };
 
@@ -40,14 +38,6 @@ const LoginForm = () => {
     login(formValues).then(onLoginSuccess).catch(onLoginFailure);
   };
 
-  if (isLoading) {
-    return <h1>LOADING..</h1>;
-  }
-
-  if (user) {
-    navigate(from);
-  }
-
   return (
     <Box mt={5} textAlign="center">
       <LoginHeader />
@@ -59,7 +49,7 @@ const LoginForm = () => {
           ))}
 
           <Button type="submit" variant="contained" size="large">
-            Zaloguj się
+            Sign In
           </Button>
         </Stack>
       </FormProvider>

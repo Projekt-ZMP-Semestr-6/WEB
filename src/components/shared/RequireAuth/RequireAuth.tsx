@@ -2,7 +2,7 @@ import { ROUTES } from '@constants';
 import useGetUser from 'hooks/useGetUser';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-const RequireAuth = () => {
+const ProtectedRoute = () => {
   const location = useLocation();
   const { data: user } = useGetUser();
 
@@ -13,4 +13,4 @@ const RequireAuth = () => {
   return <Outlet />;
 };
 
-export default RequireAuth;
+export default ProtectedRoute;
