@@ -1,6 +1,6 @@
 import { Layout, AuthorizationRoute, ProtectedRoute } from '@components/shared';
 import { ROUTES } from '@constants';
-import { IndexPage, LoginPage, NoMatchPage, RegisterPage } from '@pages';
+import { AccountPage, IndexPage, LoginPage, NoMatchPage, RegisterPage } from '@pages';
 import { Route, Routes } from 'react-router-dom';
 
 const AllRoutes = () => {
@@ -15,6 +15,8 @@ const AllRoutes = () => {
 
         <Route element={<ProtectedRoute />}>
           <Route index element={<IndexPage />} />
+          <Route path={ROUTES.account} element={<AccountPage />} />
+          {/* widok pojedyńczej obserwowanej gry */}
         </Route>
       </Route>
     </Routes>

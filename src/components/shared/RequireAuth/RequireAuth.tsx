@@ -4,9 +4,9 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 const ProtectedRoute = () => {
   const location = useLocation();
-  const { data: user } = useGetUser();
+  const { data: userData } = useGetUser();
 
-  if (!user) {
+  if (!userData?.data) {
     return <Navigate to={ROUTES.login} state={{ from: location }} replace />;
   }
 

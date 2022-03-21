@@ -2,5 +2,6 @@ export const ROUTES = {
   noMatch: '*',
   index: '/',
   login: '/login',
-  register: '/register'
+  register: '/register',
+  account: '/account'
 };
