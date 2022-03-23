@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const axiosConfig = {
-  baseURL: 'https://gamepricetracer.herokuapp.com/api',
+  baseURL: 'https://gamepricetracer.herokuapp.com/api/user',
   headers: {
     'Content-Type': 'application/json'
   }

@@ -1,5 +1,5 @@
 import { ROUTES } from '@constants';
-import useGetUser from 'hooks/useGetUser';
+import useGetUser from 'hooks/apiHooks/useGetUser';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 const ProtectedRoute = () => {
