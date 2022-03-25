@@ -1,5 +1,5 @@
+import { InputData } from 'types/api/types';
 import * as yup from 'yup';
-import { InputData } from './types';
 
 export const loginSchema = yup.object({
   email: yup.string().required().email(),

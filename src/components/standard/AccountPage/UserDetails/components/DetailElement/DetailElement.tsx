@@ -1,19 +1,21 @@
 import { Chip, Stack, Typography } from '@mui/material';
+import { DetailElementProps } from './types';
 
-interface DetailElementProps {
-  label: string;
-  value: string;
-  openDialog: () => void;
-}
+const sx = { textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' };
 
 const DetailElement = ({ label, value, openDialog }: DetailElementProps) => {
   return (
     <Stack component="li">
-      <Typography>{label}</Typography>
       <Stack direction="row" alignItems="center" spacing={2}>
-        <Typography>{value}</Typography>
+        <Typography sx={sx} variant="h6">
+          {label}
+        </Typography>
         <Chip variant="outlined" color="primary" label="Edit" size="small" onClick={openDialog} />
       </Stack>
+
+      <Typography sx={sx} variant="body1">
+        {value}
+      </Typography>
     </Stack>
   );
 };

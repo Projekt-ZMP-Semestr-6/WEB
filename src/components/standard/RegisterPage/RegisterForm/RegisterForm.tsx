@@ -3,7 +3,7 @@ import { Box, Button, Stack } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { inputsData, registerSchema } from './utils';
+import { inputsData, registerSchema } from './formUtils';
 import AlreadHaveAccount from './components/AlreadyHaveAccount/AlreadHaveAccount';
 import RegisterHeader from './components/RegisterHeader/RegisterHeader';
 import { useNavigate } from 'react-router-dom';

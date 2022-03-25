@@ -1,8 +1,7 @@
-import { Box, Chip, Stack } from '@mui/material';
-import useGetUser from 'hooks/apiHooks/useGetUser';
-import Name from './components/Name/Name';
-
-// sx={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}
+import { Box, Stack } from '@mui/material';
+import { useGetUser, useUpdateEmail, useUpdateName, useUpdatePassword } from 'hooks/apiHooks';
+import EditableUserInfo from './components/EditableUserInfo/EditableUserInfo';
+import { updateEmailFormData, updateNameFormData, updatePasswordFormData } from './utils/formData';
 
 const UserDetails = () => {
   const { data: userData } = useGetUser();
@@ -11,13 +10,24 @@ const UserDetails = () => {
   return (
     <Box>
       <Stack component="ul">
-        <Name userName={name} />
-
-        <li>
-          <h6>Label</h6>
-          <h5>{name}</h5>
-          <Chip label="Edit" />
-        </li>
+        <EditableUserInfo
+          property={name}
+          label="Name"
+          formInfo={updateNameFormData}
+          mutationHook={useUpdateName}
+        />
+        <EditableUserInfo
+          property={email}
+          label="E-mail"
+          formInfo={updateEmailFormData}
+          mutationHook={useUpdateEmail}
+        />
+        <EditableUserInfo
+          property="********"
+          label="Password"
+          formInfo={updatePasswordFormData}
+          mutationHook={useUpdatePassword}
+        />
       </Stack>
     </Box>
   );

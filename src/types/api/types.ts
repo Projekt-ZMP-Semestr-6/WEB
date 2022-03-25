@@ -24,3 +24,9 @@ export interface PasswordUpdate {
   new_password: string;
   new_password_confirmation: string;
 }
+
+export interface InputData {
+  name: string;
+  label: string;
+  type?: string;
+}

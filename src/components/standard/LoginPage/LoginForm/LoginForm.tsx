@@ -1,5 +1,5 @@
 import { TextInput } from '@components/shared';
-import { Box, Button, CircularProgress, Stack } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import DontHaveAccount from './components/DontHaveAccount/DontHaveAccount';
 import LoginHeader from './components/LoginHeader/LoginHeader';
