@@ -30,3 +30,14 @@ export interface InputData {
   label: string;
   type?: string;
 }
+
+export interface ResetPasswordEmail {
+  email: string;
+}
+
+export interface ResetPasswordData {
+  token: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+}

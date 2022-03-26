@@ -2,15 +2,15 @@ import { ROUTES } from '@constants';
 import { Link, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-function DontHaveAccount() {
+function ForgetPassword() {
   return (
     <Typography variant="subtitle2" component="p" mt={2}>
-      You don't have and account yet?
-      <Link underline="none" ml={1} component={RouterLink} to={ROUTES.register}>
-        Sing Up
+      Have you forgotten your password?
+      <Link underline="none" ml={1} component={RouterLink} to={ROUTES.forgetPassword}>
+        Remind password
       </Link>
     </Typography>
   );
 }
 
-export default DontHaveAccount;
+export default ForgetPassword;

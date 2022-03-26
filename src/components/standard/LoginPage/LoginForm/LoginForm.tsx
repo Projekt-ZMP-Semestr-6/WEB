@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import useFromLocation from 'hooks/useFromLocation';
 import { useNavigate } from 'react-router-dom';
+import ForgetPassword from './components/ForgetPassword/ForgetPassword';
 
 const LoginForm = () => {
   const from = useFromLocation();
@@ -54,6 +55,7 @@ const LoginForm = () => {
         </Stack>
       </FormProvider>
 
+      <ForgetPassword />
       <DontHaveAccount />
     </Box>
   );

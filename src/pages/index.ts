@@ -3,5 +3,15 @@ import LoginPage from './LoginPage/LoginPage';
 import RegisterPage from './RegisterPage/RegisterPage';
 import NoMatchPage from './NoMatchPage/NoMatchPage';
 import AccountPage from './AccountPage/AccountPage';
+import ForgetPasswordPage from './ForgetPasswordPage/ForgetPasswordPage';
+import ResetPasswordPage from './ResetPasswordPage/ResetPasswordPage';
 
-export { LoginPage, RegisterPage, IndexPage, NoMatchPage, AccountPage };
+export {
+  LoginPage,
+  RegisterPage,
+  IndexPage,
+  NoMatchPage,
+  AccountPage,
+  ForgetPasswordPage,
+  ResetPasswordPage
+};

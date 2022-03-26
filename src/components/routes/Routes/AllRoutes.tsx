@@ -1,6 +1,14 @@
 import { Layout, AuthorizationRoute, ProtectedRoute } from '@components/shared';
 import { ROUTES } from '@constants';
-import { AccountPage, IndexPage, LoginPage, NoMatchPage, RegisterPage } from '@pages';
+import {
+  AccountPage,
+  ForgetPasswordPage,
+  IndexPage,
+  LoginPage,
+  NoMatchPage,
+  RegisterPage,
+  ResetPasswordPage
+} from '@pages';
 import { Route, Routes } from 'react-router-dom';
 
 const AllRoutes = () => {
@@ -11,6 +19,8 @@ const AllRoutes = () => {
           <Route path={ROUTES.login} element={<LoginPage />} />
           <Route path={ROUTES.register} element={<RegisterPage />} />
           <Route path={ROUTES.noMatch} element={<NoMatchPage />} />
+          <Route path={ROUTES.forgetPassword} element={<ForgetPasswordPage />} />
+          <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
         </Route>
 
         <Route element={<ProtectedRoute />}>

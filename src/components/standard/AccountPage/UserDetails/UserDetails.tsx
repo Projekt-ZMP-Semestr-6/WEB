@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Divider, Stack } from '@mui/material';
 import { useGetUser, useUpdateEmail, useUpdateName, useUpdatePassword } from 'hooks/apiHooks';
 import EditableUserInfo from './components/EditableUserInfo/EditableUserInfo';
 import { updateEmailFormData, updateNameFormData, updatePasswordFormData } from './utils/formData';
@@ -8,7 +8,7 @@ const UserDetails = () => {
   const { name, email } = userData?.data;
 
   return (
-    <Box>
+    <Box sx={{ mx: 'auto', maxWidth: 'sm' }}>
       <Stack component="ul">
         <EditableUserInfo
           property={name}
@@ -28,6 +28,7 @@ const UserDetails = () => {
           formInfo={updatePasswordFormData}
           mutationHook={useUpdatePassword}
         />
+        <Divider />
       </Stack>
     </Box>
   );

@@ -1,9 +1,10 @@
-import { UserDetails } from '@components/standard';
+import { Logout, UserDetails } from '@components/standard';
 
 const AccountPage = () => {
   return (
     <>
       <UserDetails />
+      <Logout />
     </>
   );
 };

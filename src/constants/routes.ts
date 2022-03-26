@@ -3,5 +3,7 @@ export const ROUTES = {
   index: '/',
   login: '/login',
   register: '/register',
-  account: '/account'
+  account: '/account',
+  resetPassword: '/reset-password',
+  forgetPassword: '/forget-password'
 };
