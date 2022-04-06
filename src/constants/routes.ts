@@ -5,5 +5,6 @@ export const ROUTES = {
   register: '/register',
   account: '/account',
   resetPassword: '/reset-password',
-  forgetPassword: '/forget-password'
+  forgetPassword: '/forget-password',
+  verifyEmail: '/verify-email'
 };

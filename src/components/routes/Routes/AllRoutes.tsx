@@ -7,7 +7,8 @@ import {
   LoginPage,
   NoMatchPage,
   RegisterPage,
-  ResetPasswordPage
+  ResetPasswordPage,
+  VerifyEmailPage
 } from '@pages';
 import { Route, Routes } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const AllRoutes = () => {
           <Route path={ROUTES.noMatch} element={<NoMatchPage />} />
           <Route path={ROUTES.forgetPassword} element={<ForgetPasswordPage />} />
           <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
+          <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
         </Route>
 
         <Route element={<ProtectedRoute />}>

@@ -5,6 +5,7 @@ import NoMatchPage from './NoMatchPage/NoMatchPage';
 import AccountPage from './AccountPage/AccountPage';
 import ForgetPasswordPage from './ForgetPasswordPage/ForgetPasswordPage';
 import ResetPasswordPage from './ResetPasswordPage/ResetPasswordPage';
+import VerifyEmailPage from './VerifyEmailPage/VerifyEmailPage';
 
 export {
   LoginPage,
@@ -13,5 +14,6 @@ export {
   NoMatchPage,
   AccountPage,
   ForgetPasswordPage,
-  ResetPasswordPage
+  ResetPasswordPage,
+  VerifyEmailPage
 };
