@@ -30,7 +30,8 @@
       "@components/routes": ["components/routes"],
       "@pages": ["pages"],
       "@hooks": ["hooks"],
-      "@types": ["types"]
+      "@types": ["types"],
+      "@api": ["api"]
     }
   },
   "include": [

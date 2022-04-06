@@ -1,3 +1,3 @@
-import { UseAuth } from './hooks/useAuth';
+import { LoginCredentials, RegisterCredentials } from './api/types';
 
-export type { UseAuth };
+export type { LoginCredentials, RegisterCredentials };

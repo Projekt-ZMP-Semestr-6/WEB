@@ -5,9 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 function DontHaveAccount() {
   return (
     <Typography variant="subtitle2" component="p" mt={2}>
-      Nie posiadasz jeszcze konta?{' '}
-      <Link underline="none" component={RouterLink} to={ROUTES.register}>
-        Zarejestruj się
+      You don't have and account yet?
+      <Link underline="none" ml={1} component={RouterLink} to={ROUTES.register}>
+        Sing Up
       </Link>
     </Typography>
   );

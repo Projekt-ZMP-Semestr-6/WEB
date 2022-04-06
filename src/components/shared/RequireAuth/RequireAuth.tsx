@@ -1,16 +1,16 @@
 import { ROUTES } from '@constants';
-import { useAuth } from '@hooks';
+import useGetUser from 'hooks/apiHooks/useGetUser';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-const RequireAuth = () => {
-  const { user } = useAuth();
+const ProtectedRoute = () => {
   const location = useLocation();
+  const { data: userData } = useGetUser();
 
-  if (!user) {
+  if (!userData?.data) {
     return <Navigate to={ROUTES.login} state={{ from: location }} replace />;
   }
 
   return <Outlet />;
 };
 
-export default RequireAuth;
+export default ProtectedRoute;

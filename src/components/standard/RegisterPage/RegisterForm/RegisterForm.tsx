@@ -3,21 +3,37 @@ import { Box, Button, Stack } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { LoginFormProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { inputsData, registerSchema } from './utils';
+import { inputsData, registerSchema } from './formUtils';
 import AlreadHaveAccount from './components/AlreadyHaveAccount/AlreadHaveAccount';
 import RegisterHeader from './components/RegisterHeader/RegisterHeader';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@constants';
+import { register } from 'api/authClient';
+import { toast } from 'react-toastify';
+import { AxiosError } from 'axios';
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+
   const formMethods = useForm<LoginFormProps>({
     resolver: yupResolver(registerSchema)
   });
-  const navigate = useNavigate();
+
+  const onRegisterSuccess = () => {
+    toast.success('Pomyślnie utworzono konto użytkownika. Możesz się teraz zalogować.');
+    navigate(ROUTES.login);
+  };
+
+  const onRegisterFailure = (error: AxiosError<any, any>) => {
+    const emailError = error.response?.data.email[0];
+    if (emailError) {
+      toast.error(emailError);
+    }
+  };
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
     console.log(formValues);
-    navigate(ROUTES.login);
+    register(formValues).then(onRegisterSuccess).catch(onRegisterFailure);
   };
 
   return (
@@ -31,7 +47,7 @@ const RegisterForm = () => {
           ))}
 
           <Button type="submit" variant="contained" size="large">
-            Zarejestruj się
+            Sign Up
           </Button>
         </Stack>
       </FormProvider>

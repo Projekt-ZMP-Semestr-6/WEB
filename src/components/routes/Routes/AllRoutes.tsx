@@ -1,18 +1,34 @@
-import { Layout, RequireAuth } from '@components/shared';
+import { Layout, AuthorizationRoute, ProtectedRoute } from '@components/shared';
 import { ROUTES } from '@constants';
-import { IndexPage, LoginPage, NoMatchPage, RegisterPage } from '@pages';
+import {
+  AccountPage,
+  ForgetPasswordPage,
+  IndexPage,
+  LoginPage,
+  NoMatchPage,
+  RegisterPage,
+  ResetPasswordPage,
+  VerifyEmailPage
+} from '@pages';
 import { Route, Routes } from 'react-router-dom';
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path={ROUTES.index} element={<Layout />}>
-        <Route path={ROUTES.login} element={<LoginPage />} />
-        <Route path={ROUTES.register} element={<RegisterPage />} />
-        <Route path="*" element={<NoMatchPage />} />
+        <Route element={<AuthorizationRoute />}>
+          <Route path={ROUTES.login} element={<LoginPage />} />
+          <Route path={ROUTES.register} element={<RegisterPage />} />
+          <Route path={ROUTES.noMatch} element={<NoMatchPage />} />
+          <Route path={ROUTES.forgetPassword} element={<ForgetPasswordPage />} />
+          <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
+          <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
+        </Route>
 
-        <Route element={<RequireAuth />}>
+        <Route element={<ProtectedRoute />}>
           <Route index element={<IndexPage />} />
+          <Route path={ROUTES.account} element={<AccountPage />} />
+          {/* widok pojedyńczej obserwowanej gry */}
         </Route>
       </Route>
     </Routes>
