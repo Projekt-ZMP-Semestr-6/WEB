@@ -1,4 +1,4 @@
-import { LoginCredentials, RegisterCredentials } from '@types';
+import type { LoginCredentials, RegisterCredentials } from '@types';
 import { authClient } from './config';
 
 export function login(loginCredentials: LoginCredentials) {

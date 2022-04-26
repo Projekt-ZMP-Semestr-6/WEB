@@ -1,17 +1,20 @@
+import { ROUTES } from '@constants';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const VerifyEmailPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const uri = params.get('verify_url');
+  const uri = params.get('verify_url') as string;
 
   useEffect(() => {
-    console.log(uri);
     axios
       .get(uri)
-      .then((response) => console.log(response))
+      .then(() => {
+        navigate(ROUTES.login);
+      })
       .catch((error) => console.log(error));
   }, []);
 

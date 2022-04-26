@@ -1,5 +1,5 @@
 import useFromLocation from 'hooks/useFromLocation';
-import useGetUser from 'hooks/apiHooks/useGetUser';
+import useGetUser from 'hooks/apiHooks/user/useGetUser';
 import { Navigate, Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 

@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+// import { useGetFreeGames, useGetGameById, useSearchGameByName } from 'hooks/apiHooks';
 
 import 'swiper/css';
 import FreeGameGrid from './components/FreeGameGrid';

@@ -1,7 +1,19 @@
-import useGetUser from './useGetUser';
-import useUpdateEmail from './useUpdateEmail';
-import useUpdateName from './useUpdateName';
-import useUpdatePassword from './useUpdatePassword';
-import useResetPassword from './useResetPassword';
+import useGetUser from './user/useGetUser';
+import useUpdateEmail from './user/useUpdateEmail';
+import useUpdateName from './user/useUpdateName';
+import useUpdatePassword from './user/useUpdatePassword';
+import useResetPassword from './user/useResetPassword';
+import useGetFreeGames from './games/useGetFreeGames';
+import useGetGameById from './games/useGetGameById';
+import useSearchGameByName from './games/useSearchGameByName';
 
-export { useGetUser, useUpdateEmail, useUpdateName, useUpdatePassword, useResetPassword };
+export {
+  useGetUser,
+  useUpdateEmail,
+  useUpdateName,
+  useUpdatePassword,
+  useResetPassword,
+  useGetFreeGames,
+  useGetGameById,
+  useSearchGameByName
+};
