@@ -1,9 +1,10 @@
-import { FreeGames } from '@components/standard';
+import { FreeGames, SearchGame } from '@components/standard';
 
 const IndexPage = () => {
   return (
     <>
       <FreeGames />
+      <SearchGame />
     </>
   );
 };

@@ -16,7 +16,7 @@ describe('<RegisterForm /> component tests', () => {
   });
 
   it('correctly display header test', () => {
-    const element = screen.getByText(/rejestracja/i);
+    const element = screen.getByText(/register/i);
 
     expect(element).toBeInTheDocument();
   });
@@ -32,12 +32,12 @@ describe('<RegisterForm /> component tests', () => {
     const element = screen.getByRole('button');
 
     expect(element).toBeInTheDocument();
-    expect(element).toHaveTextContent(/zarejestruj się/i);
+    expect(element).toHaveTextContent(/sign up/i);
     expect(element).toHaveAttribute('type', 'submit');
   });
 
   it('correctly display text under button', () => {
-    const textElement = screen.getByText(/posiadasz/i);
+    const textElement = screen.getByText(/already have/i);
     const linkElement = screen.getByRole('link');
 
     expect(textElement).toBeInTheDocument();

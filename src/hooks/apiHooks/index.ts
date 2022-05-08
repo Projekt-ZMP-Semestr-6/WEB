@@ -6,8 +6,10 @@ import useResetPassword from './user/useResetPassword';
 import useGetFreeGames from './games/useGetFreeGames';
 import useGetGameById from './games/useGetGameById';
 import useSearchGameByName from './games/useSearchGameByName';
+import useAttachGame from './games/useAttachGame';
 
 export {
+  useAttachGame,
   useGetUser,
   useUpdateEmail,
   useUpdateName,

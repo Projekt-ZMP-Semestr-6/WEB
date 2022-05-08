@@ -11,3 +11,11 @@ export function getGameById(gameId: string) {
 export function searchGameByName(gameName: string) {
   return gameClient.get(`/search/${gameName}`);
 }
+
+export function attachGame(appId: string) {
+  return gameClient.get(`/attach/${appId}`);
+}
+
+export function detachGame(appId: string) {
+  return gameClient.get(`/detach/${appId}`);
+}
