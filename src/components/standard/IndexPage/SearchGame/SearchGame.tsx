@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { useAttachGame, useSearchGameByName } from 'hooks/apiHooks';
+import { useAttachGame, useGetUser, useSearchGameByName } from 'hooks/apiHooks';
 import { useEffect, useState } from 'react';
 import SearchInput from './components/SearchInput/SearchInput';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -14,9 +14,20 @@ const SearchGame = (): JSX.Element => {
 
   const { refetch: attachGame } = useAttachGame(appId);
 
+  const { refetch: updateUser } = useGetUser();
+
   useEffect(() => {
     if (appId) {
       attachGame();
+      setAppId('');
+    }
+  }, [appId]);
+
+  useEffect(() => {
+    if (!appId) {
+      setTimeout(() => {
+        updateUser();
+      }, 200);
     }
   }, [appId]);
 

@@ -7,3 +7,5 @@ export const boxStyle = {
   alignItems: 'center',
   gap: '1rem'
 };
+
+export const gameButtonStyle = { display: 'flex', flexDirection: 'column', gap: '0.5rem' };

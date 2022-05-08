@@ -1,6 +1,7 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Game } from '@types';
 import React from 'react';
+import { gameButtonStyle } from '../style';
 
 interface SearchResultsProps {
   setAppId: React.Dispatch<React.SetStateAction<string>>;
@@ -17,8 +18,8 @@ const SearchResults = ({ searchResult, setAppId }: SearchResultsProps): JSX.Elem
       {searchResult &&
         searchResult.map((game) => (
           <ListItem key={game.name}>
-            <ListItemButton onClick={() => handleGameClick(game)}>
-              <img src={game.header_img} style={{ marginRight: '1rem' }} />
+            <ListItemButton onClick={() => handleGameClick(game)} sx={gameButtonStyle}>
+              <img src={game.header_img} alt="" />
               <ListItemText>{game.name}</ListItemText>
             </ListItemButton>
           </ListItem>

@@ -7,9 +7,11 @@ import useGetFreeGames from './games/useGetFreeGames';
 import useGetGameById from './games/useGetGameById';
 import useSearchGameByName from './games/useSearchGameByName';
 import useAttachGame from './games/useAttachGame';
+import useDetachGame from './games/useDetachGame';
 
 export {
   useAttachGame,
+  useDetachGame,
   useGetUser,
   useUpdateEmail,
   useUpdateName,
