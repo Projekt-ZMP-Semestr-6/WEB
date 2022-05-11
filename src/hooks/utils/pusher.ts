@@ -10,12 +10,10 @@ function bindEvent(channel: Channel) {
 class AppPusher {
   private static instance: Pusher;
 
-  private constructor() {}
-
   public static getInstance() {
     if (!AppPusher.instance) {
-      AppPusher.instance = new Pusher('2c7bd4804e490cb6e09c', {
-        cluster: 'eu'
+      AppPusher.instance = new Pusher(process.env.REACT_APP_PUSHER_KEY as string, {
+        cluster: process.env.REACT_APP_PUSHER_CLUSTER
       });
 
       return AppPusher.instance;
