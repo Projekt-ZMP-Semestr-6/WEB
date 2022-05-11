@@ -1,5 +1,5 @@
 import { Box, Alert } from '@mui/material';
-import { useGetFreeGames } from 'hooks/apiHooks';
+import { useGetBestsellers, useGetFreeGames } from 'hooks/apiHooks';
 
 import 'swiper/css';
 import FreeGameGrid from './components/FreeGameGrid';
@@ -8,6 +8,8 @@ import FreeGameSlider from './components/FreeGameSlider';
 const FreeGames = () => {
   const { data } = useGetFreeGames();
   const freeGames = data?.data;
+
+  const { data: data2 } = useGetBestsellers();
 
   return (
     <Box>

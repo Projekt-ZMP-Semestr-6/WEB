@@ -4,7 +4,7 @@ import { Navigation } from '@components/shared';
 
 const Layout = () => {
   return (
-    <Container>
+    <Container sx={{ marginBlock: '3rem' }}>
       <Outlet />
       <Navigation />
     </Container>

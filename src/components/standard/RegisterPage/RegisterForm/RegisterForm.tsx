@@ -32,7 +32,6 @@ const RegisterForm = () => {
   };
 
   const onSubmit: SubmitHandler<LoginFormProps> = (formValues) => {
-    console.log(formValues);
     register(formValues).then(onRegisterSuccess).catch(onRegisterFailure);
   };
 

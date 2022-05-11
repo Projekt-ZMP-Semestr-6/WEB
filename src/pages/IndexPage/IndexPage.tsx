@@ -1,11 +1,19 @@
-import { AttachedGames, FreeGames, SearchGame } from '@components/standard';
+import {
+  AttachedGames,
+  Bestsellers,
+  FreeGames,
+  SearchGame,
+  TestPriceChange
+} from '@components/standard';
 
 const IndexPage = () => {
   return (
     <>
+      <TestPriceChange />
       <FreeGames />
-      <SearchGame />
       <AttachedGames />
+      <SearchGame />
+      <Bestsellers />
     </>
   );
 };

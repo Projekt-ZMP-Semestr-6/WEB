@@ -8,8 +8,12 @@ import useGetGameById from './games/useGetGameById';
 import useSearchGameByName from './games/useSearchGameByName';
 import useAttachGame from './games/useAttachGame';
 import useDetachGame from './games/useDetachGame';
+import useGetBestsellers from './games/useGetBestsellers';
+import useTestPriceChange from './games/useTestPriceChange';
 
 export {
+  useTestPriceChange,
+  useGetBestsellers,
   useAttachGame,
   useDetachGame,
   useGetUser,

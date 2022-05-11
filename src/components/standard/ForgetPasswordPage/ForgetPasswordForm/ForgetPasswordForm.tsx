@@ -14,12 +14,8 @@ const ForgetPasswordForm = () => {
 
   const onSubmit: SubmitHandler<ForgetPasswordFormProps> = (formValues) => {
     forgotPassword(formValues)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+      .then((response) => {})
+      .catch((error) => {});
   };
 
   return (

@@ -19,3 +19,11 @@ export function attachGame(appId: string) {
 export function detachGame(appId: string) {
   return gameClient.get(`/detach/${appId}`);
 }
+
+export function bestsellers() {
+  return gameClient.get(`/bestsellers`);
+}
+
+export function testPriceChange() {
+  return gameClient.get(`/fire/1`);
+}

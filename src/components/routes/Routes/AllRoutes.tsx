@@ -1,4 +1,4 @@
-import { Layout, AuthorizationRoute, ProtectedRoute } from '@components/shared';
+import { Layout, AuthorizationRoute, ProtectedRoute, Pusher } from '@components/shared';
 import { ROUTES } from '@constants';
 import {
   AccountPage,
@@ -26,9 +26,10 @@ const AllRoutes = () => {
         </Route>
 
         <Route element={<ProtectedRoute />}>
-          <Route index element={<IndexPage />} />
-          <Route path={ROUTES.account} element={<AccountPage />} />
-          {/* widok pojedyńczej obserwowanej gry */}
+          <Route element={<Pusher />}>
+            <Route index element={<IndexPage />} />
+            <Route path={ROUTES.account} element={<AccountPage />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

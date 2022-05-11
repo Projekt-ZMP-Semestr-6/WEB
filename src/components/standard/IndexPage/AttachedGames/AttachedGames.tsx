@@ -1,4 +1,4 @@
-import { Box, Button, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Button, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { Game } from '@types';
 import { useDetachGame, useGetUser } from 'hooks/apiHooks';
 import { useEffect, useState } from 'react';
@@ -26,12 +26,15 @@ const AttachedGames = () => {
     if (!appId) {
       setTimeout(() => {
         updateUser();
-      }, 200);
+      }, 500);
     }
   }, [appId]);
 
   return (
-    <Box sx={{ maxWidth: '540px', marginInline: 'auto' }}>
+    <Box sx={{ maxWidth: '540px', marginInline: 'auto', marginBlock: '2rem' }}>
+      <Typography variant="h4" sx={{ textAlign: 'center' }}>
+        Currently observed games
+      </Typography>
       <List>
         {observedGames &&
           observedGames.map((game: Game) => (

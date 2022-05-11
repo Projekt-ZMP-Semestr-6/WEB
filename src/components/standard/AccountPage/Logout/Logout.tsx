@@ -22,9 +22,6 @@ const Logout = () => {
       <Button variant="outlined" sx={{ my: 1 }} onClick={handleLogout}>
         Logout
       </Button>
-      <Button variant="outlined" color="error">
-        Delete account
-      </Button>
     </Box>
   );
 };

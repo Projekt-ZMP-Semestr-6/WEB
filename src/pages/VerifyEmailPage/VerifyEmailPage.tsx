@@ -15,7 +15,7 @@ const VerifyEmailPage = () => {
       .then(() => {
         navigate(ROUTES.login);
       })
-      .catch((error) => console.log(error));
+      .catch(() => {});
   }, []);
 
   return <>Weryfikaja adresu email</>;

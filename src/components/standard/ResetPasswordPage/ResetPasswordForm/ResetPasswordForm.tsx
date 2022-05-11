@@ -4,6 +4,7 @@ import { Box, Button, Stack } from '@mui/material';
 import { useResetPassword } from 'hooks/apiHooks';
 import useUrlParams from 'hooks/useUrlParams';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { ResetPasswordData } from 'types/api/types';
 import { inputsData, resetPasswordSchema } from './formUtils';
 import { ResetPasswordFormProps } from './types';
@@ -14,6 +15,7 @@ const ResetPasswordForm = () => {
   });
   const mutation = useResetPassword();
   const { getParam } = useUrlParams();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ResetPasswordFormProps> = (formValues) => {
     const resetPasswordCredentials: ResetPasswordData = {
@@ -22,6 +24,7 @@ const ResetPasswordForm = () => {
       email: getParam('email') || ''
     };
     mutation.mutate(resetPasswordCredentials);
+    navigate('/', { replace: true });
   };
 
   return (

@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useAttachGame, useGetUser, useSearchGameByName } from 'hooks/apiHooks';
+import AppPusher from 'hooks/utils/pusher';
 import { useEffect, useState } from 'react';
 import SearchInput from './components/SearchInput/SearchInput';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -18,16 +19,10 @@ const SearchGame = (): JSX.Element => {
 
   useEffect(() => {
     if (appId) {
-      attachGame();
-      setAppId('');
-    }
-  }, [appId]);
-
-  useEffect(() => {
-    if (!appId) {
-      setTimeout(() => {
+      attachGame().then(() => {
+        AppPusher.bindGame(appId);
         updateUser();
-      }, 200);
+      });
     }
   }, [appId]);
 
